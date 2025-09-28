@@ -1,0 +1,19 @@
+name: deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: deploy
+        uses: enoracho/blog@main
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          USERNAME: ${{ vars.USERNAME }}
+          TARGET_REPO: enoracho/enoracho.github.io
+          TARGET_BRANCH: main
+          BUILD_SCRIPT: yarn run docs:build
+          BUILD_DIR: docs/.vitepress/dist/
+#          CNAME: enoracho.com
