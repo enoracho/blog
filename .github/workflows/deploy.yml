@@ -16,4 +16,4 @@ jobs:
           TARGET_BRANCH: main
           BUILD_SCRIPT: yarn run docs:build
           BUILD_DIR: docs/.vitepress/dist/
-#          CNAME: enoracho.com
+          CNAME: enoracho.com
